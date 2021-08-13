@@ -5,12 +5,12 @@
       <article>
        
       <ul class="countries-date">
-        <li class="list countries-date__item">Capital: {{capital}}</li>
-        <li class="list countries-date__item">Population: {{population}}</li>
+        <li class="list countries-date__item">Capital: <span class="values">{{capital}}</span></li>
+        <li class="list countries-date__item">Population: <span class="values">{{population}}</span></li>
         </ul>
       <ul class="countries-date__languages">Language:
         {{#each languages}}
-        <li class="countries-date__language">{{this.name}}</li>
+        <li class="countries-date__language"><span class="values">{{this.name}}</span></li>
         {{/each}}
       </ul>
       </article>
