@@ -13,7 +13,7 @@ body {
 }
 .countries__label{
     font-family: "Lato", sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     margin: 20px auto;
 }
 .countries__input{
@@ -22,7 +22,7 @@ body {
     background-color:rgb(209, 163, 238);
     border-radius: 4px;
     border-color: darkmagenta;
-
+    height: 30px;
 }
 .countries{
     &__name{
@@ -36,6 +36,7 @@ body {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 50px;
 }
 img{
     box-shadow: -1px 12px 8px 4px rgba(34, 60, 80, 0.2);
