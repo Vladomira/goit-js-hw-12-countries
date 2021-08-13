@@ -10,7 +10,7 @@ defaults.maxTextHeight = null;
 
 // inner 
 import countryCard from '../templates/template.hbs';
-import map from '../templates/map.hbs';
+// import map from '../templates/map.hbs';
 import API from './fetchCountries';
 import getRefs from './get-refs';
 
