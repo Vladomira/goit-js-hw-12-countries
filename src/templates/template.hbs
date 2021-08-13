@@ -1,18 +1,17 @@
-{{#each this}}
-  <li>
-    <h2>{{name}}</h2>   
-       <img src="{{flag}}" alt="{{name}}" width="480">
+
+  <li class="list countries__item">
+    <h2 class="countries__name">{{name}}</h2>   
+       <img src="{{flag}}" alt="{{name}}" width="350">
       <article>
        
-      <ul>
-        <li class="">Capital: {{capital}}</li>
-        <li class="">Population: {{population}}</li>
+      <ul class="countries-date">
+        <li class="list countries-date__item">Capital: {{capital}}</li>
+        <li class="list countries-date__item">Population: {{population}}</li>
         </ul>
-        <ul>Language:
+      <ul class="countries-date__languages">Language:
         {{#each languages}}
-        <li class="">{{this.name}}</li>
+        <li class="countries-date__language">{{this.name}}</li>
         {{/each}}
-       </ul>
+      </ul>
       </article>
   </li>
-{{/each}}
