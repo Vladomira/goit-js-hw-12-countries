@@ -19,20 +19,22 @@ const refs = getRefs();
 refs.input.addEventListener('input', debounce( onSearch, 500));
 
 
-
-
 function onSearch(e){
   e.preventDefault();
   const inputValue = e.target.value.trim();
 
   if(!inputValue){
     return console.log('Input the country, please.')    
+  }else if(inputValue){
+    countriesResult(inputValue);
   }
-  
+}
+
+function countriesResult(inputValue){
   API.fetchCountries(inputValue)
   .then(countries =>{
     console.log(countries);
-    if (countries.length > 10){
+    if(countries.length > 10){
       error ({    
         title: 'Too many matches found.',
         text: ' Please enter a more specific query!',
@@ -40,14 +42,41 @@ function onSearch(e){
         delay: 2000,
         });
       }else if(countries.length === 1){
-      const markup = countryCard(countries[0]);
-      refs.countriesContainer.innerHTML = markup;
-      } else {
-      const markup = countries.map(country => `<li>${country.name}</li>`).join('');
-      refs.countriesContainer.innerHTML=  `<ul class="countries__container">${markup}</ul>`;
-    }          
+          const markup = countryCard(countries[0]);
+          refs.countriesContainer.innerHTML = markup;         
+    }else if (countries.length <= 10){
+      const markup = countries.map(country =>
+         `<li class="countries-date__item">
+         <a href = # class="countries-date__link">${country.name}</a>
+         </li>`).join('');
+      refs.countriesContainer.innerHTML= `<ul class="countries-container__list">${markup}</ul>`;
+      const selectedCountry = document.querySelector('.countries-container__list');
+      selectedCountry.addEventListener('click', onChooseCountry); 
+    }else if(countries.status === 404){
+      console.log('Something was wrong.')
+    }else {
+      error ({    
+        title: 'Too many matches found.',
+        text: ' Please enter a more specific query!',
+        styling: 'brighttheme',
+        delay: 2000,
+        });
+    }
   })
 }
+
+
+
+function onChooseCountry(e){
+  if (e.target.className === 'countries-date__link'){
+    const inputValue = e.target.textContent;
+   
+    countriesResult(inputValue); 
+    
+  }
+}
+
+
 
 
 
