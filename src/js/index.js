@@ -49,6 +49,7 @@ function countriesResult(inputValue){
          `<li class="countries-date__item">
          <a href = # class="countries-date__link">${country.name}</a>
          </li>`).join('');
+         
       refs.countriesContainer.innerHTML= `<ul class="countries-container__list">${markup}</ul>`;
       const selectedCountry = document.querySelector('.countries-container__list');
       selectedCountry.addEventListener('click', onChooseCountry); 
@@ -66,17 +67,15 @@ function countriesResult(inputValue){
 }
 
 
-
 function onChooseCountry(e){
-  if (e.target.className === 'countries-date__link'){
-    const inputValue = e.target.textContent;
+  if (e.target.classList.contains('countries-date__link')){
    
+    const inputValue = e.target.textContent;
+       
     countriesResult(inputValue); 
     
   }
 }
-
-
 
 
 
@@ -112,4 +111,15 @@ function onChooseCountry(e){
 //   styling: 'brighttheme',
 //   delay: 2000,
 //   });
+// }
+
+
+
+// function onChooseCountry(e){
+//   if (e.target.className === 'countries-date__link'){
+//     const inputValue = e.target.textContent;
+       
+//     countriesResult(inputValue); 
+    
+//   }
 // }
